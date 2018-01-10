@@ -6,7 +6,7 @@ var DEFAULT_WIDTH = 30;
 var DEFAULT_HEIGHT = 15;
 var mouseOn = false;
 var current = 'grass';
-//var $elem;
+
 
 var MapBuilder = function ($container, params) {
   this.$elem = $container;
@@ -27,27 +27,15 @@ function onMouseEnter (e) {
   var $this = $(this);
   $this.removeClass($this.data('attr'));
   $this.addClass(current);
-      //console.log($this.data('attr'));
   $this.data('new', current);
-      /*if(mouseOn === true) {
-        $this.removeClass($this.data('attr'));
-        $this.addClass(current);
-        $this.data('attr', current);
-      }
-      */
+
 }
 
 function onMouseOut (e) {
-      //if (mouseOn === true) {
   var $this = $(this);
   $this.removeClass($this.data('new'));
   $this.addClass($this.data('attr'));
-     // }
   mouseOn = false;
-      //if mouse isnt clicked THEN all of this; if it is clicked 
-      //mouseOn = false;
-      //css attributes return to prev
-      //
 }
 
 function onMouseDown (e) {
@@ -76,15 +64,8 @@ MapBuilder.prototype.setupPalette = function () {
 
   });
   
-    //pass in function that removes previous selected swatch
-    //add new swatch to the class
-    //make a variable that looks within class #map-builder and finds the .selected
-    //removeClass selected from that object (the variable you just made)
-    //add the selected class to *this*
-    //current = this.classList[1]
-
 }
-// TODO: Implement MapBuilder.setupMapCanvas
+
 MapBuilder.prototype.setupMapCanvas = function () {
   for (var i = 0; i < 15; i++) {
     var $row = $('<div>');
@@ -102,14 +83,6 @@ MapBuilder.prototype.setupMapCanvas = function () {
   $('.tile').on('mouseout', onMouseOut);
   $('.tile').on('mousedown', onMouseDown);
   $('.tile').on('mouseup', onMouseUp);
-
-
-//var LEFT_MOUSE_BUTTON = 1;
-
-/*$('.tile').on('mousedown', function (e) {
-  e.which === LEFT_MOUSE_BUTTON; 
-  console.log(e.which);     // --> true
-});*/
 
 
 }
